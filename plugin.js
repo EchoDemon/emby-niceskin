@@ -13,7 +13,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         }
     }
 
-    function DefaultSkin() {
+    function NiceSkin() {
 
         var self = this;
 
@@ -293,7 +293,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         });
     }
 
-    DefaultSkin.prototype.getRouteUrl = function (item, options) {
+    NiceSkin.prototype.getRouteUrl = function (item, options) {
 
         options = options || {};
         var url;
@@ -399,11 +399,11 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         }
     };
 
-    DefaultSkin.prototype.getHeaderTemplate = function () {
+    NiceSkin.prototype.getHeaderTemplate = function () {
         return pluginManager.mapPath(this, 'header.html');
     };
 
-    DefaultSkin.prototype.getDependencies = function () {
+    NiceSkin.prototype.getDependencies = function () {
 
         var list = [
             // Used for the mpaa rating
@@ -445,7 +445,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         return list;
     };
 
-    DefaultSkin.prototype.getHomeRoute = function () {
+    NiceSkin.prototype.getHomeRoute = function () {
 
         if (!layoutManager.tv) {
             return 'home/home.html';
@@ -459,7 +459,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         return 'home_horiz/home.html';
     };
 
-    DefaultSkin.prototype.getTranslations = function () {
+    NiceSkin.prototype.getTranslations = function () {
 
         var files = [];
 
@@ -475,7 +475,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         });
     };
 
-    DefaultSkin.prototype.getRoutes = function () {
+    NiceSkin.prototype.getRoutes = function () {
 
         var routes = [];
 
@@ -642,11 +642,11 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         return routes;
     };
 
-    DefaultSkin.prototype.showGenre = function (options) {
+    NiceSkin.prototype.showGenre = function (options) {
         Emby.Page.show(pluginManager.mapRoute(this.id, 'list/list.html') + '?parentId=' + options.ParentId + '&genreId=' + options.Id);
     };
 
-    DefaultSkin.prototype.setTitle = function (title) {
+    NiceSkin.prototype.setTitle = function (title) {
 
         var isDefault = title == null;
 
@@ -664,34 +664,34 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         pageTitle.innerHTML = title || '&nbsp;';
     };
 
-    DefaultSkin.prototype.search = function () {
+    NiceSkin.prototype.search = function () {
         Emby.Page.show(pluginManager.mapRoute(this, 'search/search.html'));
     };
 
-    DefaultSkin.prototype.showLiveTV = function (options) {
+    NiceSkin.prototype.showLiveTV = function (options) {
         Emby.Page.show(pluginManager.mapRoute(this, 'livetv/livetv.html?serverId=' + options.serverId));
     };
 
-    DefaultSkin.prototype.showGuide = function (options) {
+    NiceSkin.prototype.showGuide = function (options) {
         Emby.Page.show(pluginManager.mapRoute(this, 'livetv/guide.html?serverId=' + options.serverId));
     };
 
-    DefaultSkin.prototype.showNowPlaying = function () {
+    NiceSkin.prototype.showNowPlaying = function () {
         Emby.Page.show(pluginManager.mapRoute(this, 'nowplaying/nowplaying.html'));
     };
 
-    DefaultSkin.prototype.showUserMenu = function () {
+    NiceSkin.prototype.showUserMenu = function () {
 
         // For now just go cheap and re-use the back menu
         showBackMenuInternal(true);
     };
 
-    DefaultSkin.prototype.showBackMenu = function () {
+    NiceSkin.prototype.showBackMenu = function () {
 
         return showBackMenuInternal(false);
     };
 
-    DefaultSkin.prototype.getThemes = function () {
+    NiceSkin.prototype.getThemes = function () {
 
         return [
             { name: 'Apple TV', id: 'appletv' },
@@ -710,5 +710,5 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         ];
     };
 
-    return DefaultSkin;
+    return NiceSkin;
 });
