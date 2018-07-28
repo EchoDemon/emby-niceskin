@@ -13,13 +13,13 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         }
     }
 
-    function NiceSkin() {
+    function DefaultSkin() {
 
         var self = this;
 
-        self.name = 'Nice Skin';
+        self.name = 'emby.niceskin';
         self.type = 'skin';
-        self.id = 'niceskin';
+        self.id = 'emby.niceskin';
 
         var clockInterval;
         self.load = function () {
@@ -293,7 +293,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         });
     }
 
-    NiceSkin.prototype.getRouteUrl = function (item, options) {
+    DefaultSkin.prototype.getRouteUrl = function (item, options) {
 
         options = options || {};
         var url;
@@ -399,11 +399,11 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         }
     };
 
-    NiceSkin.prototype.getHeaderTemplate = function () {
+    DefaultSkin.prototype.getHeaderTemplate = function () {
         return pluginManager.mapPath(this, 'header.html');
     };
 
-    NiceSkin.prototype.getDependencies = function () {
+    DefaultSkin.prototype.getDependencies = function () {
 
         var list = [
             // Used for the mpaa rating
@@ -445,7 +445,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         return list;
     };
 
-    NiceSkin.prototype.getHomeRoute = function () {
+    DefaultSkin.prototype.getHomeRoute = function () {
 
         if (!layoutManager.tv) {
             return 'home/home.html';
@@ -459,7 +459,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         return 'home_horiz/home.html';
     };
 
-    NiceSkin.prototype.getTranslations = function () {
+    DefaultSkin.prototype.getTranslations = function () {
 
         var files = [];
 
@@ -475,7 +475,7 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         });
     };
 
-    NiceSkin.prototype.getRoutes = function () {
+    DefaultSkin.prototype.getRoutes = function () {
 
         var routes = [];
 
@@ -642,11 +642,11 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         return routes;
     };
 
-    NiceSkin.prototype.showGenre = function (options) {
+    DefaultSkin.prototype.showGenre = function (options) {
         Emby.Page.show(pluginManager.mapRoute(this.id, 'list/list.html') + '?parentId=' + options.ParentId + '&genreId=' + options.Id);
     };
 
-    NiceSkin.prototype.setTitle = function (title) {
+    DefaultSkin.prototype.setTitle = function (title) {
 
         var isDefault = title == null;
 
@@ -664,34 +664,34 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         pageTitle.innerHTML = title || '&nbsp;';
     };
 
-    NiceSkin.prototype.search = function () {
+    DefaultSkin.prototype.search = function () {
         Emby.Page.show(pluginManager.mapRoute(this, 'search/search.html'));
     };
 
-    NiceSkin.prototype.showLiveTV = function (options) {
+    DefaultSkin.prototype.showLiveTV = function (options) {
         Emby.Page.show(pluginManager.mapRoute(this, 'livetv/livetv.html?serverId=' + options.serverId));
     };
 
-    NiceSkin.prototype.showGuide = function (options) {
+    DefaultSkin.prototype.showGuide = function (options) {
         Emby.Page.show(pluginManager.mapRoute(this, 'livetv/guide.html?serverId=' + options.serverId));
     };
 
-    NiceSkin.prototype.showNowPlaying = function () {
+    DefaultSkin.prototype.showNowPlaying = function () {
         Emby.Page.show(pluginManager.mapRoute(this, 'nowplaying/nowplaying.html'));
     };
 
-    NiceSkin.prototype.showUserMenu = function () {
+    DefaultSkin.prototype.showUserMenu = function () {
 
         // For now just go cheap and re-use the back menu
         showBackMenuInternal(true);
     };
 
-    NiceSkin.prototype.showBackMenu = function () {
+    DefaultSkin.prototype.showBackMenu = function () {
 
         return showBackMenuInternal(false);
     };
 
-    NiceSkin.prototype.getThemes = function () {
+    DefaultSkin.prototype.getThemes = function () {
 
         return [
             { name: 'Apple TV', id: 'appletv' },
@@ -710,5 +710,5 @@ define(['playbackManager', 'skinManager', 'userSettings', 'pluginManager', 'brow
         ];
     };
 
-    return NiceSkin;
+    return DefaultSkin;
 });

@@ -109,8 +109,9 @@ define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 's
                         return;
                     }
 
-                    Emby.Models.item(id).then(function (item) {
-
+                    Emby.Models.item(id).then(function (item)
+                    {
+                        backdrop.setBackdrop(item);
                         if (options.enableBackdrops !== false && userSettings.enableBackdrops()) {
                             // The focus backdrops are too slow on xbox
                             if (!browser.slow && !browser.edge) {
